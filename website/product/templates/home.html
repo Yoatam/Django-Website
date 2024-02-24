@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stussy</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-white" id="headerNav">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" style="background-color: #ee3e38;" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto ">
+                <li class="nav-item">
+                    <a class="nav-link mx-2 active" aria-current="page" href="/" style="color: #ee3e38; font-weight: 700;">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="/product/" style="color: #ee3e38; font-weight: 700;">PRODUCTS</a>
+                </li>
+                <li class="nav-item d-none d-lg-block">
+
+                    <img src="https://i.pinimg.com/736x/33/49/9d/33499d63fe9b534da06e8c227e1f8698.jpg" height="80" />
+                  
+                </li>
+                <li class="nav-item d-none d-lg-block">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="/about/" style="color: #ee3e38; font-weight: 700;">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" href="/contact/" style="color: #ee3e38; font-weight: 700;">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+ <!-- Jumbotron -->
+  <div class="container my-3">    
+    
+    <div class="p-5 mb-4 text-white" style="border-radius: 60px; background-color: #ee3a33;">
+      <h1>Stussy</h1>
+      <p class="lead">Searching for cozy and stylish fleece clothing to keep you warm and fashionable during chilly days? Look no further than Stussy, your go-to destination for premium fleece apparel. Whether you're lounging at home, running errands around town, or enjoying outdoor adventures, our collection of fleece clothing offers unbeatable comfort and versatility.</p>
+   </div>
+  </div>
+
+  <!-- Product List -->
+    <div class="row">
+        {% for single_product in products %} 
+      <!-- Product Cards -->
+      <div class="col-lg-3 col-md-4 col-sm-6 px-5 pb-4 ">
+        <div class="card">
+          <img  style="width: auto; height: auto"
+          src="{{single_product.image.url}}"
+          class="card-img-top"
+          alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{single_product.product_name}}</h5>
+            <p class="card-text">{{single_product.product_description}}</p>
+            <p class="card-text">{{single_product.date|timesince}} ago</p>
+            <a href="#" class="btn btn-danger" style="background-color: #ee3e38; border-color: #ee3e38;">
+            PRICE: {{single_product.price}} ETB
+                </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+  </div>
+</body>
+</html>
